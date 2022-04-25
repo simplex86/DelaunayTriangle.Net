@@ -16,12 +16,12 @@ namespace SimpleX.DelaunayTriangle.Engine
             var maxX = minX;
             var maxY = minY;
 
-            for (int i = 1; i < vertices.Count; i++)
+            foreach (var v in vertices)
             {
-                minX = Math.Min(minX, vertices[i].x);
-                minY = Math.Min(minY, vertices[i].y);
-                maxX = Math.Max(maxX, vertices[i].x);
-                maxY = Math.Max(maxY, vertices[i].y);
+                minX = Math.Min(minX, v.x);
+                minY = Math.Min(minY, v.y);
+                maxX = Math.Max(maxX, v.x);
+                maxY = Math.Max(maxY, v.y);
             }
 
             var dx = maxX - minX;
@@ -30,9 +30,9 @@ namespace SimpleX.DelaunayTriangle.Engine
             var mx = (minX + maxX) * 0.5f;
             var my = (minY + maxY) * 0.5f;
 
-            var p1 = new Vector2(mx - 20 * dt, my - dt);
-            var p2 = new Vector2(mx, my + 20 * dt);
-            var p3 = new Vector2(mx + 20 * dt, my - dt);
+            var p1 = new Vector2(mx - 2 * dt, my - dt);
+            var p2 = new Vector2(mx, my + 2 * dt);
+            var p3 = new Vector2(mx + 2 * dt, my - dt);
 
             triangles.Add(new Triangle2(p1, p2, p3));
 
@@ -58,7 +58,7 @@ namespace SimpleX.DelaunayTriangle.Engine
                     for (int k=i+1; k<polygon.Count; k++)
                     {
                         var e2 = polygon[k];
-                        if (e1 == e2)
+                        if (e1 == e2) // 如果两条边重合，则把两条边都删除
                         {
                             e1.invalid = true;
                             e2.invalid = true;

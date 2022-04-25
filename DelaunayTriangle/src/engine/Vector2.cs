@@ -2,7 +2,7 @@
 
 namespace SimpleX.DelaunayTriangle.Engine
 {
-    class Vector2
+    struct Vector2
     {
         public float x;
         public float y;
@@ -11,12 +11,6 @@ namespace SimpleX.DelaunayTriangle.Engine
         {
             this.x = x;
             this.y = y;
-        }
-
-        public Vector2(Vector2 v)
-            : this(v.x, v.y)
-        {
-            
         }
 
         public float magnitude

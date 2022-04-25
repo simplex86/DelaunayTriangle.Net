@@ -10,8 +10,8 @@ namespace SimpleX.DelaunayTriangle.Engine
 
         public Edge2(Vector2 a, Vector2 b)
         {
-            u = new Vector2(a);
-            w = new Vector2(b);
+            u = a;
+            w = b;
             invalid = false;
         }
 

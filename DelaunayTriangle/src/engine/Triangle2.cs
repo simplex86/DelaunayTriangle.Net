@@ -12,9 +12,9 @@ namespace SimpleX.DelaunayTriangle.Engine
 
         public Triangle2(Vector2 a, Vector2 b, Vector2 c)
         {
-            this.a = new Vector2(a);
-            this.b = new Vector2(b);
-            this.c = new Vector2(c);
+            this.a = a;
+            this.b = b;
+            this.c = c;
             invalid = false;
         }
 
